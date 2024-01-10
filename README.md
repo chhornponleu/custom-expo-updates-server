@@ -32,6 +32,7 @@ The flow for creating an update is as follows:
 ## The setup
 
 Note: The app is configured to load updates from the server running at http://localhost:3000. If you prefer to load them from a different base URL (for example, in an Android emulator):
+
 1. Update `.env.local` in the server.
 2. Update `updates.url` in `app.json` and then run `npx expo prebuild` to sync the changes with the generated native code.
 
@@ -72,3 +73,7 @@ This server was created with NextJS. You can find the API endpoints in **pages/a
 The code signing keys and certificates were generated using https://github.com/expo/code-signing-certificates.
 
 We chose to make this example with NextJS so that you can run one command to get the API running, and also so that you could deploy this to Vercel to load updates from a real server. If you choose to deploy this to Vercel, you'll need to find the URL the endpoints exist at, then update the Expo.plist for iOS with the URL under the `EXUpdatesURL` key, then rebuild a "release" app to include the new URL.
+
+## With Expo dev client
+
+Open deeplink: exp+expo-updates-client://expo-development-client/?url=http://localhost:3000/api/manifest?platform=ios&runtime-version=1

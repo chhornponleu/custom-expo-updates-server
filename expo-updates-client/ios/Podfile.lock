@@ -12,6 +12,73 @@ PODS:
     - ExpoModulesCore
   - Expo (50.0.0-canary-20231205-250b31f):
     - ExpoModulesCore
+  - expo-dev-client (0.0.1-canary-20231205-250b31f):
+    - EXManifests
+    - expo-dev-launcher
+    - expo-dev-menu
+    - expo-dev-menu-interface
+    - EXUpdatesInterface
+  - expo-dev-launcher (0.0.1-canary-20231205-250b31f):
+    - EXManifests
+    - expo-dev-launcher/Main (= 0.0.1-canary-20231205-250b31f)
+    - expo-dev-menu
+    - expo-dev-menu-interface
+    - ExpoModulesCore
+    - EXUpdatesInterface
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+    - React-RCTAppDelegate
+  - expo-dev-launcher/Main (0.0.1-canary-20231205-250b31f):
+    - EXManifests
+    - expo-dev-launcher/Unsafe
+    - expo-dev-menu
+    - expo-dev-menu-interface
+    - ExpoModulesCore
+    - EXUpdatesInterface
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+    - React-RCTAppDelegate
+  - expo-dev-launcher/Unsafe (0.0.1-canary-20231205-250b31f):
+    - EXManifests
+    - expo-dev-menu
+    - expo-dev-menu-interface
+    - ExpoModulesCore
+    - EXUpdatesInterface
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+    - React-RCTAppDelegate
+  - expo-dev-menu (0.0.1-canary-20231205-250b31f):
+    - expo-dev-menu/Main (= 0.0.1-canary-20231205-250b31f)
+    - expo-dev-menu/ReactNativeCompatibles (= 0.0.1-canary-20231205-250b31f)
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+  - expo-dev-menu-interface (0.0.1-canary-20231205-250b31f)
+  - expo-dev-menu/Main (0.0.1-canary-20231205-250b31f):
+    - EXManifests
+    - expo-dev-menu-interface
+    - expo-dev-menu/Vendored
+    - ExpoModulesCore
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+  - expo-dev-menu/ReactNativeCompatibles (0.0.1-canary-20231205-250b31f):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+  - expo-dev-menu/SafeAreaView (0.0.1-canary-20231205-250b31f):
+    - ExpoModulesCore
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+  - expo-dev-menu/Vendored (0.0.1-canary-20231205-250b31f):
+    - expo-dev-menu/SafeAreaView
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
   - ExpoFileSystem (0.0.1-canary-20231205-250b31f):
     - ExpoModulesCore
   - ExpoKeepAwake (0.0.1-canary-20231205-250b31f):
@@ -1104,6 +1171,10 @@ DEPENDENCIES:
   - EXJSONUtils (from `../node_modules/expo-json-utils/ios`)
   - EXManifests (from `../node_modules/expo-manifests/ios`)
   - Expo (from `../node_modules/expo`)
+  - expo-dev-client (from `../node_modules/expo-dev-client/ios`)
+  - expo-dev-launcher (from `../node_modules/expo-dev-launcher`)
+  - expo-dev-menu (from `../node_modules/expo-dev-menu`)
+  - expo-dev-menu-interface (from `../node_modules/expo-dev-menu-interface/ios`)
   - ExpoFileSystem (from `../node_modules/expo-file-system/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
@@ -1185,6 +1256,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-manifests/ios"
   Expo:
     :path: "../node_modules/expo"
+  expo-dev-client:
+    :path: "../node_modules/expo-dev-client/ios"
+  expo-dev-launcher:
+    :path: "../node_modules/expo-dev-launcher"
+  expo-dev-menu:
+    :path: "../node_modules/expo-dev-menu"
+  expo-dev-menu-interface:
+    :path: "../node_modules/expo-dev-menu-interface/ios"
   ExpoFileSystem:
     :path: "../node_modules/expo-file-system/ios"
   ExpoKeepAwake:
@@ -1300,6 +1379,10 @@ SPEC CHECKSUMS:
   EXJSONUtils: 7ac44265a6d8f2036c6251c20dfac8e87dbb4e46
   EXManifests: 04229ef3bb976f45a176c14f671ec250c4b1515d
   Expo: 8417eab5b3493e136535d034567ee92460e0c757
+  expo-dev-client: 0f728b85d52355c49ec18264791dbf13c5da0a67
+  expo-dev-launcher: 51068278ff69ae7af0dfc25a3fb26667fde0d34c
+  expo-dev-menu: 89aba38f5705c9c7c54144afc49ad23ed85e8de6
+  expo-dev-menu-interface: 063ad723722090f6f40a04a25429d91ec20b52b6
   ExpoFileSystem: e624c85f5b6c2a3d8cb24df1141bddb439bc7dc3
   ExpoKeepAwake: dbcef4ea23f58e645f0f5b5edec113081e1b4f7a
   ExpoModulesCore: 1023fa9316bbd4191849ca645dc291586acf2240
@@ -1360,4 +1443,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: b66196580cd759611de93fa21b524dd8932ea126
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.12.1

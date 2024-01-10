@@ -3208,6 +3208,16 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
+ajv@8.11.0:
+  version "8.11.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.11.0.tgz#977e91dd96ca669f54a11e23e378e33b884a565f"
+  integrity sha512-wGgprdCvMalC0BztXvitD2hC04YffAvtsUn93JbGXYLAtCUO4xd17mCCZQxUOItiBwZvJScWo8NIvQMQ71rdpg==
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    json-schema-traverse "^1.0.0"
+    require-from-string "^2.0.2"
+    uri-js "^4.2.2"
+
 anser@^1.4.9:
   version "1.4.10"
   resolved "https://registry.yarnpkg.com/anser/-/anser-1.4.10.tgz#befa3eddf282684bd03b63dcda3927aef8c2e35b"
@@ -4368,6 +4378,41 @@ expo-constants@0.0.1-canary-20231205-250b31f:
     "@expo/config" "0.0.1-canary-20231205-250b31f"
     uuid "^3.3.2"
 
+expo-dev-client@0.0.1-canary-20231205-250b31f:
+  version "0.0.1-canary-20231205-250b31f"
+  resolved "https://registry.yarnpkg.com/expo-dev-client/-/expo-dev-client-0.0.1-canary-20231205-250b31f.tgz#0e2c9a62d5115de6d8338496a59198d9065ba0eb"
+  integrity sha512-qCMR3QtHSlBoeLVKEkllah3S73JFPIe+UpNPjXV60XBClciIOUom3mDDaH8oowHw8hdODNC8uSB4IQfWyjADUQ==
+  dependencies:
+    expo-dev-launcher "0.0.1-canary-20231205-250b31f"
+    expo-dev-menu "0.0.1-canary-20231205-250b31f"
+    expo-dev-menu-interface "0.0.1-canary-20231205-250b31f"
+    expo-manifests "0.0.1-canary-20231205-250b31f"
+    expo-updates-interface "0.0.1-canary-20231205-250b31f"
+
+expo-dev-launcher@0.0.1-canary-20231205-250b31f:
+  version "0.0.1-canary-20231205-250b31f"
+  resolved "https://registry.yarnpkg.com/expo-dev-launcher/-/expo-dev-launcher-0.0.1-canary-20231205-250b31f.tgz#340ff519254df4d79d65c74a6624e24a919b5d6a"
+  integrity sha512-YY+Hjq+p3VnENZCNyL8xFyv5PmMh7/ITGaRbvmGhYLytQeycnpd0jH77MTOhMQb46u2GHsCYY0zqwd5Tb4C1mg==
+  dependencies:
+    ajv "8.11.0"
+    expo-dev-menu "0.0.1-canary-20231205-250b31f"
+    expo-manifests "0.0.1-canary-20231205-250b31f"
+    resolve-from "^5.0.0"
+    semver "^7.5.3"
+
+expo-dev-menu-interface@0.0.1-canary-20231205-250b31f:
+  version "0.0.1-canary-20231205-250b31f"
+  resolved "https://registry.yarnpkg.com/expo-dev-menu-interface/-/expo-dev-menu-interface-0.0.1-canary-20231205-250b31f.tgz#2c745808f79a1ba3b58811e5864a6c79213dd49f"
+  integrity sha512-peUO9DFRQQwDqXS+Lketv2RqOdWt4YUvG6KKReDCf8F2GrwWwNTplBVlDTqxOha59KFUEj+BiNo3eIlYUwoglA==
+
+expo-dev-menu@0.0.1-canary-20231205-250b31f:
+  version "0.0.1-canary-20231205-250b31f"
+  resolved "https://registry.yarnpkg.com/expo-dev-menu/-/expo-dev-menu-0.0.1-canary-20231205-250b31f.tgz#bfed8d3a3d226884a821276b4ab1c0360328ff5f"
+  integrity sha512-qPvhy6U2mQhzjiBR6Qw+PNUZQN67Dtb+UvwTSadmwo/I4JWInkjngFAYZkqzBLdP0/HsO0OR29NFMWVrkDoPkg==
+  dependencies:
+    expo-dev-menu-interface "0.0.1-canary-20231205-250b31f"
+    semver "^7.5.3"
+
 expo-eas-client@0.0.1-canary-20231205-250b31f:
   version "0.0.1-canary-20231205-250b31f"
   resolved "https://registry.yarnpkg.com/expo-eas-client/-/expo-eas-client-0.0.1-canary-20231205-250b31f.tgz#5ff76709c2c4f544792bfad3b7498b5ae102208b"
@@ -4474,6 +4519,11 @@ expo@^50.0.0-canary-20231205-250b31f:
     expo-modules-autolinking "0.0.1-canary-20231205-250b31f"
     expo-modules-core "0.0.1-canary-20231205-250b31f"
     whatwg-url-without-unicode "8.0.0-3"
+
+fast-deep-equal@^3.1.1:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
+  integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
 
 fast-glob@^3.2.5, fast-glob@^3.2.9:
   version "3.2.11"
@@ -5423,6 +5473,11 @@ json-schema-deref-sync@^0.13.0:
     memory-cache "~0.2.0"
     traverse "~0.6.6"
     valid-url "~1.0.9"
+
+json-schema-traverse@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz#ae7bcb3656ab77a73ba5c49bf654f38e6b6860e2"
+  integrity sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==
 
 json5@^2.2.1:
   version "2.2.1"
@@ -6526,7 +6581,7 @@ pump@^3.0.0:
     end-of-stream "^1.1.0"
     once "^1.3.1"
 
-punycode@^2.1.1:
+punycode@^2.1.0, punycode@^2.1.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.1.tgz#027422e2faec0b25e1549c3e1bd8309b9133b6e5"
   integrity sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==
@@ -7637,6 +7692,13 @@ update-browserslist-db@^1.0.10, update-browserslist-db@^1.0.9:
   dependencies:
     escalade "^3.1.1"
     picocolors "^1.0.0"
+
+uri-js@^4.2.2:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.4.1.tgz#9b1a52595225859e55f669d928f88c6c57f2a77e"
+  integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
+  dependencies:
+    punycode "^2.1.0"
 
 url-join@4.0.0:
   version "4.0.0"

@@ -5,8 +5,8 @@ do
     esac
 done
 
-cd ../expo-updates-client
-npx expo export
+# cd ../expo-updates-client
+# npx expo export
 cd ../expo-updates-server
 rm -rf updates/$directory/
 cp -r ../expo-updates-client/dist/ updates/$directory

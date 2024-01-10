@@ -11,6 +11,7 @@
   "dependencies": {
     "expo": "^50.0.0-canary-20231205-250b31f",
     "expo-constants": "0.0.1-canary-20231205-250b31f",
+    "expo-dev-client": "0.0.1-canary-20231205-250b31f",
     "expo-status-bar": "0.0.1-canary-20231205-250b31f",
     "expo-updates": "0.0.1-canary-20231205-250b31f",
     "react": "18.2.0",
