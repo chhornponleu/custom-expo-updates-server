@@ -77,3 +77,37 @@ We chose to make this example with NextJS so that you can run one command to get
 ## With Expo dev client
 
 Open deeplink: exp+expo-updates-client://expo-development-client/?url=http://localhost:3000/api/manifest?platform=ios&runtime-version=1
+
+# expo updates
+
+### Storage
+
+```
+- root
+  - /{channel}/{runtime}
+    - manifest.json
+    - assets
+      - {hash}
+      - {hash}
+      - {hash}
+    - bundles
+      - {hash}
+        - {hash}
+        - {hash}
+    - ...
+```
+
+### Rolling out
+
+- set percentage
+- set runtime
+- set channel
+- set percentage
+
+### Statistics
+
+- success
+- failed
+- rolledback
+
+/mainfest/{channel}/{runtime}
