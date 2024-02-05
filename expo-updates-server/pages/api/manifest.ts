@@ -16,6 +16,7 @@ import {
   NoUpdateAvailableError,
   createNoUpdateAvailableDirectiveAsync,
 } from '../../common/helpers';
+import s3 from '../../common/s3';
 
 export default async function manifestEndpoint(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
@@ -54,8 +55,11 @@ export default async function manifestEndpoint(req: NextApiRequest, res: NextApi
 
   let updateBundlePath: string;
   try {
+
     updateBundlePath = await getLatestUpdateBundlePathForRuntimeVersionAsync(runtimeVersion);
+
   } catch (error: any) {
+    console.log('error:getLatestUpdateBundlePathForRuntimeVersionAsync', error);
     res.statusCode = 404;
     res.json({
       error: error.message,
@@ -66,6 +70,14 @@ export default async function manifestEndpoint(req: NextApiRequest, res: NextApi
   const updateType = await getTypeOfUpdateAsync(updateBundlePath);
 
   try {
+    console.log('info', {
+      updateBundlePath,
+      runtimeVersion,
+      platform,
+      protocolVersion,
+      updateType
+    });
+
     try {
       if (updateType === UpdateType.NORMAL_UPDATE) {
         await putUpdateInResponseAsync(
@@ -80,6 +92,7 @@ export default async function manifestEndpoint(req: NextApiRequest, res: NextApi
         await putRollBackInResponseAsync(req, res, updateBundlePath, protocolVersion);
       }
     } catch (maybeNoUpdateAvailableError) {
+      console.error('err: maybeNoUpdateAvailableError', maybeNoUpdateAvailableError);
       if (maybeNoUpdateAvailableError instanceof NoUpdateAvailableError) {
         await putNoUpdateAvailableInResponseAsync(req, res, protocolVersion);
         return;
@@ -87,7 +100,7 @@ export default async function manifestEndpoint(req: NextApiRequest, res: NextApi
       throw maybeNoUpdateAvailableError;
     }
   } catch (error) {
-    console.error(error);
+    console.error('maybeNoUpdateAvailableError->2', error);
     res.statusCode = 404;
     res.json({ error });
   }
@@ -99,7 +112,10 @@ enum UpdateType {
 }
 
 async function getTypeOfUpdateAsync(updateBundlePath: string): Promise<UpdateType> {
-  const directoryContents = await fs.readdir(updateBundlePath);
+  // const directoryContents = await fs.readdir(updateBundlePath);
+  // TODO: read ${updateBundlePath}/rollback file directly instead of scanning directory
+  const resp = await s3.listS3({ path: updateBundlePath });
+  const directoryContents = resp.Contents?.map(item => item.Key || false).filter(Boolean) || [];
   return directoryContents.includes('rollback') ? UpdateType.ROLLBACK : UpdateType.NORMAL_UPDATE;
 }
 
@@ -178,6 +194,11 @@ async function putUpdateInResponseAsync(
     signature = serializeDictionary(dictionary);
   }
 
+  // console.log({
+  //   signature, expectSignatureHeader
+  // });
+
+
   const assetRequestHeaders: { [key: string]: object } = {};
   [...manifest.assets, manifest.launchAsset].forEach((asset) => {
     assetRequestHeaders[asset.key] = {
@@ -204,6 +225,7 @@ async function putUpdateInResponseAsync(
   res.setHeader('content-type', `multipart/mixed; boundary=${form.getBoundary()}`);
   res.write(form.getBuffer());
   res.end();
+
 }
 
 async function putRollBackInResponseAsync(
